@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Headphones",
+    "category": "Electronics",
+    "price": 89.99,
+    "brand": "SoundWave",
+    "inStock": true,
+    "rating": 4.5
+  },
+  {
+    "id": 2,
+    "name": "Running Shoes",
+    "category": "Footwear",
+    "price": 74.99,
+    "brand": "SprintPro",
+    "inStock": true,
+    "rating": 4.3
+  },
+  {
+    "id": 3,
+    "name": "Stainless Steel Water Bottle",
+    "category": "Home & Kitchen",
+    "price": 24.99,
+    "brand": "HydroPeak",
+    "inStock": true,
+    "rating": 4.7
+  },
+  {
+    "id": 4,
+    "name": "Mechanical Keyboard",
+    "category": "Electronics",
+    "price": 119.99,
+    "brand": "KeyCraft",
+    "inStock": false,
+    "rating": 4.6
+  },
+  {
+    "id": 5,
+    "name": "Leather Backpack",
+    "category": "Accessories",
+    "price": 129.99,
+    "brand": "UrbanCarry",
+    "inStock": true,
+    "rating": 4.4
+  },
+  {
+    "id": 6,
+    "name": "Coffee Maker",
+    "category": "Home & Kitchen",
+    "price": 59.99,
+    "brand": "BrewMaster",
+    "inStock": true,
+    "rating": 4.2
+  }
+]
