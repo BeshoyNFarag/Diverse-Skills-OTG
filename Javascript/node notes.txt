@@ -1,0 +1,20 @@
+const fsPromise = require('fs').promises //need explanation
+
+rs.pipe(ws);
+copying a readable stream into a writable stream
+fs.mkdir
+
+
+fs.existsSync() //need to see the meaning
+
+npm i nodemon -g
+
+npm i nodemon -D
+
+
+package.json vs package-lock.json
+how to install a dependency using npm
+
+npm i uuid --> what is uuid for
+
+^ means update the minor ~ means update the patch no sign means keep the version fixed and * means update everything
