@@ -1,20 +1,97 @@
-const fsPromise = require('fs').promises //need explanation
-
-rs.pipe(ws);
-copying a readable stream into a writable stream
-fs.mkdir
 
 
-fs.existsSync() //need to see the meaning
 
-npm i nodemon -g
-
-npm i nodemon -D
-
-
-package.json vs package-lock.json
 how to install a dependency using npm
-
 npm i uuid --> what is uuid for
 
-^ means update the minor ~ means update the patch no sign means keep the version fixed and * means update everything
+the js append function cannt create a directory for us if it does not exist
+i need to know more about the event emitter
+
+const logEvent = require('./logEvents');
+
+const EventEmitter = require('events');
+
+class MyEmitter extends EventEmitter { };
+
+//initialize object
+const myEmitter = new MyEmitter();
+
+
+//add listener for the log event
+myEmitter.on('log', (msg) => logEvent.logEvents(msg));
+
+setTimeout(() => {
+    //emit event
+    myEmitter.emit('log', 'Log event emitted!');
+}, 2000);
+
+
+const {v4: uuid} = require('uuid');
+const {format} = require('date-fns');
+const fs = require('fs');
+const fsPromises = require('fs').promises;
+const path = require('path');
+
+
+const logEvents = async (message) => {
+    const dateTime = `${format(new Date(), 'yyyy-MM-dd HH:mm:ss')}`;
+    const logItem = `${dateTime}\t${uuid()}\t${message}\n`;
+    console.log(logItem);
+    try {
+        if (!fs.existsSync(path.join(__dirname, 'logs'))) {
+            await fsPromises.mkdir(path.join(__dirname, 'logs'));
+        }
+
+        await fsPromises.appendFile('logs/eventLog.txt', logItem, 'utf-8');
+    }
+    catch (err) {
+        console.log(err);
+    }
+
+}
+
+module.exports = {logEvents};
+
+
+
+
+
+process.env.port
+
+path.parse(filepath).base
+
+
+
+
+
+learn express:
+
+to download express we should write npm i express
+const express = require('express');
+const app = express();
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.get('/', (req,res) => {
+
+    res.send('Hello World');
+});
+
+app.get('/', (req,res) => {
+
+    res.sendFile('views/index.html', {root: __dirname});
+});
+ res.sendFile(path.join(__dirname, 'views','index.html'));
+
+
+
+express accepts a regex in the methods
+
+
+
+app.get('/old-page.html', (req,res) => {
+
+    res.redirect((301,'new-page.html'));
+});
+
+
+
+routhandlers:

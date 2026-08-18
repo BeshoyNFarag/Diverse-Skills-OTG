@@ -1,3 +1,0 @@
-This is some new data to write to the file: 
-Hi this is beshoy
-hi this is the same beshoy but from a second line
