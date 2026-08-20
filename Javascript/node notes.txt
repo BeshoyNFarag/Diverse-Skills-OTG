@@ -95,3 +95,38 @@ app.get('/old-page.html', (req,res) => {
 
 
 routhandlers:
+
+
+
+Middleware:
+
+middleware is anything between the request and the response
+chaining the middleware using callback function in the request handler or using 3 arrays
+built in middleware, custom middleware, middleware from third parties
+what does this do: app.use(express.urlencoded({ extended: false }));
+app.use(express.json()); --> what does this do
+
+what does this do: app.use(express.static(path.join(__dirname, '/public')));
+
+
+what does the cors dependency do
+
+app.use(cors)
+
+cross origin resouce sharing
+
+what does that mean: 
+const whitelist = ['https://www.yoursite.com', 'http://localhost:3500'];
+
+
+
+app.use() does not accept regex, 
+
+
+
+app.all() meaning and everything
+
+
+
+chatper 8 creating routers in the node.js express.js:
+
