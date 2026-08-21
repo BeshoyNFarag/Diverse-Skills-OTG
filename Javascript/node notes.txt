@@ -1,10 +1,5 @@
 
 
-
-how to install a dependency using npm
-npm i uuid --> what is uuid for
-
-the js append function cannt create a directory for us if it does not exist
 i need to know more about the event emitter
 
 const logEvent = require('./logEvents');
@@ -105,28 +100,21 @@ chaining the middleware using callback function in the request handler or using 
 built in middleware, custom middleware, middleware from third parties
 what does this do: app.use(express.urlencoded({ extended: false }));
 app.use(express.json()); --> what does this do
-
 what does this do: app.use(express.static(path.join(__dirname, '/public')));
-
-
 what does the cors dependency do
-
 app.use(cors)
-
 cross origin resouce sharing
-
 what does that mean: 
 const whitelist = ['https://www.yoursite.com', 'http://localhost:3500'];
-
-
-
 app.use() does not accept regex, 
-
-
-
 app.all() meaning and everything
 
 
 
 chatper 8 creating routers in the node.js express.js:
 
+const router = express.Router();  --> what the fuck does this do
+what is the difference between the app and the router
+router.route('/:id')
+
+building a rest api in node
