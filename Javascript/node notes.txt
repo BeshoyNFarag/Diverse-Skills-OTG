@@ -1,64 +1,3 @@
-
-
-i need to know more about the event emitter
-
-const logEvent = require('./logEvents');
-
-const EventEmitter = require('events');
-
-class MyEmitter extends EventEmitter { };
-
-//initialize object
-const myEmitter = new MyEmitter();
-
-
-//add listener for the log event
-myEmitter.on('log', (msg) => logEvent.logEvents(msg));
-
-setTimeout(() => {
-    //emit event
-    myEmitter.emit('log', 'Log event emitted!');
-}, 2000);
-
-
-const {v4: uuid} = require('uuid');
-const {format} = require('date-fns');
-const fs = require('fs');
-const fsPromises = require('fs').promises;
-const path = require('path');
-
-
-const logEvents = async (message) => {
-    const dateTime = `${format(new Date(), 'yyyy-MM-dd HH:mm:ss')}`;
-    const logItem = `${dateTime}\t${uuid()}\t${message}\n`;
-    console.log(logItem);
-    try {
-        if (!fs.existsSync(path.join(__dirname, 'logs'))) {
-            await fsPromises.mkdir(path.join(__dirname, 'logs'));
-        }
-
-        await fsPromises.appendFile('logs/eventLog.txt', logItem, 'utf-8');
-    }
-    catch (err) {
-        console.log(err);
-    }
-
-}
-
-module.exports = {logEvents};
-
-
-
-
-
-process.env.port
-
-path.parse(filepath).base
-
-
-
-
-
 learn express:
 
 to download express we should write npm i express
@@ -95,9 +34,6 @@ routhandlers:
 
 Middleware:
 
-middleware is anything between the request and the response
-chaining the middleware using callback function in the request handler or using 3 arrays
-built in middleware, custom middleware, middleware from third parties
 what does this do: app.use(express.urlencoded({ extended: false }));
 app.use(express.json()); --> what does this do
 what does this do: app.use(express.static(path.join(__dirname, '/public')));
