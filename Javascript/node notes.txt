@@ -1,49 +1,4 @@
-learn express:
-
-to download express we should write npm i express
-const express = require('express');
-const app = express();
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-app.get('/', (req,res) => {
-
-    res.send('Hello World');
-});
-
-app.get('/', (req,res) => {
-
-    res.sendFile('views/index.html', {root: __dirname});
-});
- res.sendFile(path.join(__dirname, 'views','index.html'));
-
-
-
-express accepts a regex in the methods
-
-
-
-app.get('/old-page.html', (req,res) => {
-
-    res.redirect((301,'new-page.html'));
-});
-
-
-
-routhandlers:
-
-
-
-Middleware:
-
-what does this do: app.use(express.urlencoded({ extended: false }));
-app.use(express.json()); --> what does this do
-what does this do: app.use(express.static(path.join(__dirname, '/public')));
-what does the cors dependency do
-app.use(cors)
-cross origin resouce sharing
 what does that mean: 
-const whitelist = ['https://www.yoursite.com', 'http://localhost:3500'];
-app.use() does not accept regex, 
-app.all() meaning and everything
 
 
 
@@ -54,3 +9,37 @@ what is the difference between the app and the router
 router.route('/:id')
 
 building a rest api in node
+
+a REST API is a transfer stateless tranfer API is just how Programmes talk to each other 
+
+
+
+chapter 9 MVC REST API:
+
+express is by default an unopinionated framework
+creating controllers directory 
+from what i have seen we removed the callback functions from the route into the controller as well as the data asscoiated with it
+
+
+
+chapter 10 Authentication:
+
+the authentication requries 2 routes, one for the registeration, and an authorization route to authorize the user
+what the hell is that: const usersDB = {
+
+    users: require('../model/users.json'),
+    setUsers: function (data) {this.users = data},
+}
+
+
+we need to install bcrypt and bcrypt helps us install and hash the passwords that we get from the user
+
+
+we send an JWT on match 
+
+
+
+
+
+
+chapter 11 JWT JSON web tokens:
