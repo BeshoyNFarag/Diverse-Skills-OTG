@@ -43,3 +43,67 @@ we send an JWT on match
 
 
 chapter 11 JWT JSON web tokens:
+
+
+access tokens are stored in memory, dont store in local storage or cookies
+refresh token, sent as httpOnly token, must expire at some point, cant be accessed by JavaScript
+issued at authorization, user uses for api access until expiry, verified for middleware, new token issued at refresh request
+
+the .env file
+we use the JWT package inside our authController --> why?
+
+require('dotenv').config(); what is that
+
+
+     const accessToken = jwt.sign(
+            { "username": foundUser.username },
+            process.env.ACCESS_TOKEN_SECRET,
+            { expiresIn: '30s' }); 
+        
+        const refreshToken = jwt.sign(
+            { "username": foundUser.username },
+            process.env.REFRESH_TOKEN_SECRET,
+            { expiresIn: '1d' }
+        );
+
+
+ const currentUser = { ...foundUser, refreshToken };
+        const otherUsers = usersDB.users.filter(person => person.username !== foundUser.username);
+        usersDB.setUsers([...otherUsers, currentUser]); 
+
+
+res.cookie('jwt', refreshToken, { httpOnly: true, sameSite: 'None', secure: true, maxAge: 24 * 60 * 60 * 1000 });   
+res.json({ accessToken });
+
+
+require('dotenv').config(); --> what is this require for
+
+
+
+
+explain what ever the fuck that is:
+
+
+const verifyJWT = (req, res, next) => {
+    const authHeader = req.headers['authorization'];
+    if (!authHeader) return res.sendStatus(401);
+    console.log(authHeader); // Bearer token
+    const token = authHeader.split(' ')[1];
+    jwt.verify(
+        token,
+        process.env.ACCESS_TOKEN_SECRET,
+        (err, decoded) => {
+            if (err) return res.sendStatus(403); //invalid token
+            req.user = decoded.username;
+            next();
+        }
+    );
+}
+
+
+we use the app.use(jwt.verify)  before the routes ww need to use auth before
+
+refresh token code controller needs to be studied
+
+
+check the logout controller path and understand the code inside it
