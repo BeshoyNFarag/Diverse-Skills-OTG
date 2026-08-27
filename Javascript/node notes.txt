@@ -107,3 +107,17 @@ refresh token code controller needs to be studied
 
 
 check the logout controller path and understand the code inside it
+
+
+
+
+
+autherization vs authentication
+
+
+
+Chapter 12 roles:
+
+
+
+in the config dir we made a file and called it ROLE_LIST it includes the user, the editor, and the role in json format then we exported it
