@@ -121,3 +121,22 @@ Chapter 12 roles:
 
 
 in the config dir we made a file and called it ROLE_LIST it includes the user, the editor, and the role in json format then we exported it
+each role carries a code as a value
+
+we added some code in the refreshtokencontroller and the register controller
+
+we also touched the middleware
+
+we added verifyroles.js in the middleware and the verifyJWT 
+
+
+
+Chapter 13 MongoDB:
+
+its not structured, it stores data in a format like JSON, we dont use joins we dont normalize the database
+
+
+advantage: 
+performance, flexibility, scalability, usability (in the cloud)
+
+npm i mongoose
