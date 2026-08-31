@@ -1,18 +1,3 @@
-what does that mean: 
-
-
-
-chatper 8 creating routers in the node.js express.js:
-
-const router = express.Router();  --> what the fuck does this do
-what is the difference between the app and the router
-router.route('/:id')
-
-building a rest api in node
-
-a REST API is a transfer stateless tranfer API is just how Programmes talk to each other 
-
-
 
 chapter 9 MVC REST API:
 
