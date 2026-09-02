@@ -1,12 +1,4 @@
 
-chapter 9 MVC REST API:
-
-express is by default an unopinionated framework
-creating controllers directory 
-from what i have seen we removed the callback functions from the route into the controller as well as the data asscoiated with it
-
-
-
 chapter 10 Authentication:
 
 the authentication requries 2 routes, one for the registeration, and an authorization route to authorize the user

@@ -1,0 +1,72 @@
+mongodb is a NoSQL DBMS which means we dont use sql commands to interact with it
+
+NoSQL DB stores data as documents and inside each document we have JSON like file that stores the data in key value pairs this gives us some adavantages over using an SQL DBMS
+
+advantages: it looks like JSON so if you are working with JS this is familiar and easy to read, it allows nested documents which means a document inside a document. querying a NoSQL database can be easier 
+
+what is the difference between mongoDB atlas, and on promise DB
+
+
+How data is structured in mongoDB: 
+
+each document inside mongoDB gets assigned an _id by mongoDB itself
+a property or an attribute inside mongodb can store an array of values or another document (bson)
+
+
+inside mongoDB atlas what is a mongoDB string
+we can import multiple documents at the same time
+
+inside the terminal after running mongosh we can interact with our databases using the terminal
+
+writing show dbs shows us the databases that we have.
+we can specify which database to use by simply writing use DATABASE_NAME 
+we can write use DATABASE_NAME of a database that does not actually exist and mongosh will switch to it and will create it once we add a document to it
+in mongosh we use cls instead of clear to clear the terminal safely
+to show the collections inside a DB we can use show collections
+we can also create a var ==> how the fuck is this useful to anyone? inside the shell.
+
+db.DATABASE_NAME.insertOne() --> this will insert the a one document inside our database
+when we use the db.COLLECTION_NAME.insertOne({bson}) ---> this one here will create the collection name and insert the document for us without the need to create it (which is so fucking dangerous) 
+
+db.COLLECTION_NAME.insertMany([ {bson}, {bson} ])
+
+to fetch some data we use the find method: db.COLLECTION_NAME.find() --> finds all the data 
+db.COLLECTION_NAME.find({bson filter argument}, {arg: 1}) --> this lets us filter the data which we get by selecting the fields that we will get back
+we can also do this db.COLLECTION_NAME.findOne() --> this will lets us take only one of the matching documents 
+
+
+
+we can chain some functions together:
+
+db.COLLECTION_NAME.find({bson filter}).count() --> this here counts the number of object matching our filter and description 
+db.COLLECTION_NAME.find().limit(number) --> this will limit the result to the count of the number
+db.COLLECTION_NAME.find().sort({attribute to sort by : 1 or -1}) --> we choose 1 for asc and -1 for desc
+
+
+
+Operators & queries in MongoDB:
+
+db.COLLECTION_NAME.find({attribute: {$gt: value}}) this will get us the value greater than this one but not including it
+$gte --> stands for greater than or equal to, lti is the same 
+to match with or || we use the $or: 
+db.COLLECTION_NAME.find({$or: [{}]})
+
+$in and $nin 
+db.COLLECTION_NAME_find({attribute: {$in: [value,value,value]}})
+example: db.books.find({rating: {$in: [7,8,9]}})
+
+
+
+Querying Arrays: 
+
+
+$all
+
+
+
+DELETING DOCUMENTS IN MONGODB: 
+
+db.COLLECTION_NAME.deleteOne(the MongoDB assigned id) --> to delete a specified object
+db.COLLECTION_NAME.deleteMany({some attribute: value})
+
+

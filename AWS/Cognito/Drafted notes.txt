@@ -1,0 +1,18 @@
+what is AWS cognito user pool
+what is its benifits
+creating cognito user pool
+users, groups, & user registiration
+Hosted UI
+MFA integration
+Web identity federation (login using google, facebook & so on)
+token management (ID Token, Access Token)
+SDKs support (without hosted UI)
+Amplify UI
+identity pools
+
+
+
+-begin the notes
+
+the functionality we are going to add is called federation which lets us make the user authenticate themselves on google for example
+cognito is free for the first 50K user
