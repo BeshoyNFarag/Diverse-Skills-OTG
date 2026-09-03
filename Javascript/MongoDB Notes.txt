@@ -70,3 +70,45 @@ db.COLLECTION_NAME.deleteOne(the MongoDB assigned id) --> to delete a specified 
 db.COLLECTION_NAME.deleteMany({some attribute: value})
 
 
+
+UPDATING DOCUMENTS:
+
+db.COLLECTION_NAME.updateOne({_id: Object + id} ,{$set: {KEY: NEW_VALUE, ANOTHER_KEY: ANOTHER_NEW_VALUE}}) 
+
+db.COLLECTION_NAME.updateOne({ATTRIBUTE: KEY} ,{$set: {KEY: NEW_VALUE, ANOTHER_KEY: ANOTHER_NEW_VALUE}}) --> this here will match everything that holds the exact KEY for that ATTRIBUTE and set something inside to new value
+
+db.COLLECTION_NAME.updateOne({_id: Object + id} ,{$inc: {KEY: INCREMENT_AMOUNT_AS_NUMBER}})  --> here we increment the amount inside the key
+
+
+db.COLLECTION_NAME.updateOne({_id: Object + id} ,{$pull: {KEY: A_VALUE_INSIDE_ARRAY_TO_DELETE}})  --> here we delete a value inside an array 
+
+db.COLLECTION_NAME.updateOne({_id: Object + id} ,{$push: {KEY: A_VALUE_INSIDE_ARRAY_TO_ADD}})  --> here we append a value inside an array
+
+we can use $each inside the key followed by an array of elements and each of those elements will be pushed to the array
+
+
+
+MONGODB DRIVERS:
+
+drivers here mean the connector and the interface that allows us to interact with MongoDB from another programming language or interface
+npm i mongodb --g
+
+
+CONNECTING TO MONGODB:
+
+
+db.js is a directory where we will write the code for connecting our database MongoDB with our node.js app and express.js framework
+
+
+FETCHING DATA:
+
+DATABASE_OBJECT.collection('COLLECTION_NAME') --> used in JavaScript
+
+using the same funcition dv.collection('books').find() --> this will send us the cursor not the data of a collection it does not work the same as in the mongosh terminal, we can use .forEach and the .toArray() methods on this finds.
+very important that the .toArray() retruns a promise, which means we need to use it inside an async function and await for it
+
+
+HANDLING POST REQUESTS INSIDE MONGODB NODE.JS EXPRESS.JS:
+
+
+ 
