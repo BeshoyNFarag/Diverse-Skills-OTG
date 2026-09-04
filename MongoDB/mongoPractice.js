@@ -25,11 +25,15 @@ connectToDB((err) => {
 
 app.get('/books', (req, res) => {
     
+    const page =  req.query.p
+    const booksPerPage = 3
     let books = []
     // this collection function is what we use to reference a collection in the database 
     db.collection('books')
     .find()
     .sort({rating: -1})
+    .limit(booksPerPage)
+    .skip(page * booksPerPage)
     .forEach( book => books.push(book))
     .then( () => {res.status(200).json(books)} )
     
@@ -71,3 +75,42 @@ app.post('/books', (req,res) => {
 
 
 } )
+
+app.delete('/books/:id', (req,res) => {
+
+    if (ObjectId.isValid(req.params.id)){
+
+        db.collection('books')
+        .deleteOne({_id: new ObjectId(req.params.id)})
+        .then(result => {
+            res.status(200).json(result)
+        })
+        .catch(err =>
+            res.status(500).json(err)
+        )
+
+    } else {
+        res.status(500).json({ message: 'error homie' });
+    }
+
+})
+
+app.patch('/books/:id', (req,res) => {
+
+    if (ObjectId.isValid(req.params.id)){
+        const updates = req.body
+        db.collection('books')
+        .updateOne({_id: new ObjectId(req.params.id)}, {$set: {updates}})
+        .then(result => {
+            res.status(200).json(result)
+        })
+        .catch(err =>
+            res.status(500).json(err)
+        )
+
+    } else {
+        res.status(500).json({ message: 'error homie' });
+    }
+
+
+})

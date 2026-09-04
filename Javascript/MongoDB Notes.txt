@@ -108,36 +108,9 @@ using the same funcition dv.collection('books').find() --> this will send us the
 very important that the .toArray() retruns a promise, which means we need to use it inside an async function and await for it
 
 
+
 HANDLING POST REQUESTS INSIDE MONGODB NODE.JS EXPRESS.JS:
 
 
-PAGINATION:
 
-app.get('/books', (req, res) => {
-    
-    const page =  req.query.p
-    const booksPerPage = 3
-    let books = []
-    // this collection function is what we use to reference a collection in the database 
-    db.collection('books')
-    .find()
-    .sort({rating: -1})
-    .limit(booksPerPage)
-    .skip(page * booksPerPage)
-    .forEach( book => books.push(book))
-    .then( () => {res.status(200).json(books)} )
-    
-
-});
-
-
-INDEXING:
-
-the idea of indexing is the same in SQL its memory expensive and every time we update the data the index automatically updates
-we create and index by writing the command of db.COLLECTION_NAME.createIndex({COLUMN_NAMES})
-
-
-
-UNRELATED:
-
-in the past few videos, we were connecting our app to a local MongoDB but in production we will most probably connect it to an atlas
+ 
